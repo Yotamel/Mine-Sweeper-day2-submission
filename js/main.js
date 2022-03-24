@@ -1,5 +1,7 @@
 'use strict'
 //notes for second submission: I think it could be much better, will try to work on CSS and readablity over the weekend. undo feature is unfinished as well. noticed a bug in the lives display as I did it in a rush
+
+//added a quick fix on github upload as the image was not loading
 var gBoard; //{mineAround, isMine, isShown, isMarked}
 var gLevel;
 var gGame = { isOn: false, shownCount: 0, markedCount: 0, secsPassed: 0, };
@@ -7,6 +9,7 @@ var gPrevCellList; // for future undo, will be used to determine if the user cli
 var gLivesLost
 
 var elRadioBtns = document.querySelectorAll('input[name="difficulty"]')
+var elSmiley = document.querySelector(".smiley")
 
 var minutesLabel = document.getElementById("minutes");
 var secondsLabel = document.getElementById("seconds");
@@ -25,6 +28,7 @@ function gameInit() {
 	resetTimer(gTimerInterval)
 	createBoard(gLevel.SIZE)
 	renderBoard(gBoard)
+	renderSmiley(elSmiley)
 }
 
 function createBoard(size) {
